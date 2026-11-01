@@ -1,0 +1,10 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+/Source Code/.venv/
+
+# Test video and generated frames
+/Source Code/Test/test.mp4
+/Source Code/Test/Frames/
