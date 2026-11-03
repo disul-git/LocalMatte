@@ -37,9 +37,12 @@ This project is currently under active development. The complete background-remo
 - [x] OpenCV installation and verification
 - [x] Basic video reading and frame extraction
 
-### Planned
+### Working
 
 - [ ] SAM 2 static image segmentation
+
+### Planned
+
 - [ ] SAM 2 video object tracking
 - [ ] Transparent RGBA frame generation
 - [ ] Numbered PNG sequence export
