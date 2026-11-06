@@ -5,6 +5,12 @@ __pycache__/
 # Virtual environment
 /Source Code/.venv/
 
+# SAM 2 Folder
+/Source Code/sam2/
+
 # Test video and generated frames
 /Source Code/Test/test.mp4
 /Source Code/Test/Frames/
+
+# Test image
+/Source Code/Test/test_image.jpg
