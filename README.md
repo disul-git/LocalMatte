@@ -40,14 +40,14 @@ This project is currently under active development. The complete background-remo
 - [x] CPU-based PyTorch installation and verification
 - [x] OpenCV installation and verification
 - [x] Basic video reading and frame extraction
+- [x] SAM 2 static image segmentation
 
 ### Working
 
-- [ ] SAM 2 static image segmentation
+- [ ] SAM 2 video object tracking
 
 ### Planned
 
-- [ ] SAM 2 video object tracking
 - [ ] Transparent RGBA frame generation
 - [ ] Numbered PNG sequence export
 - [ ] Gradio user interface
