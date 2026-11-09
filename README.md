@@ -1,8 +1,8 @@
-# LocalMatte
-
 <div align="center">
   <img src="Source Code/assets/LocalMatte_logo.png" alt="LocalMatte Logo" width="400">
 </div>
+
+# LocalMatte
 
 **A local, CPU-based video background removal tool built with Python.**
 
