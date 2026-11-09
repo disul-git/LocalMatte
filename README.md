@@ -1,5 +1,9 @@
 # LocalMatte
 
+<div align="center">
+  <img src="assets/LocalMatte_logo.png" alt="LocalMatte Logo" width="400">
+</div>
+
 **A local, CPU-based video background removal tool built with Python.**
 
 LocalMatte is a personal project exploring video segmentation and object tracking to remove video backgrounds and export the results as transparent PNG frames.
