@@ -48,6 +48,14 @@ predictor.set_image(image_rgb)
 input_point = np.array([[318.0, 514.5]])
 input_label = np.array([1])
 
+masks, scores, logits = predictor.predict(
+    point_coords = input_point,
+    point_labels = input_label,
+    multimask_output = True
+)
+
+print("Mask score: ",scores)
+print("Number of masks: ",len(masks))
 
 print("SAM 2 model loaded successfully!")
 print("Image loaded successfully!")
