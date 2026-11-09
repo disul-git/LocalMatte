@@ -4,6 +4,7 @@ from pathlib import Path
 import cv2
 import torch
 import numpy as np
+import matplotlib.pyplot as plt
 
 from sam2.build_sam import build_sam2
 from sam2.sam2_image_predictor import SAM2ImagePredictor
@@ -56,6 +57,24 @@ masks, scores, logits = predictor.predict(
 
 print("Mask score: ",scores)
 print("Number of masks: ",len(masks))
+
+# Visualize the original image and predicted masks
+fig, axes = plt.subplots(1, 4, figsize=(16, 5))
+
+# Display original image
+axes[0].imshow(image_rgb)
+axes[0].set_title("Original Image")
+axes[0].axis("off")
+
+# Display each predicted mask
+for i in range(len(masks)):
+    axes[i + 1].imshow(masks[i], cmap="gray")
+    axes[i + 1].set_title(f"Mask {i + 1} (Score: {scores[i]:.4f})")
+    axes[i + 1].axis("off")
+
+# Adjust spacing and display
+plt.tight_layout()
+plt.show()
 
 print("SAM 2 model loaded successfully!")
 print("Image loaded successfully!")
