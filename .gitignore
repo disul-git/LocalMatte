@@ -5,7 +5,7 @@ __pycache__/
 # Virtual environment
 /Source Code/.venv/
 
-# SAM 2 Folder
+# SAM2 Folder
 /Source Code/sam2/
 
 # Test video and generated frames
@@ -14,3 +14,10 @@ __pycache__/
 
 # Test image
 /Source Code/Test/test_image.jpg
+
+# Converted SAM2 Frames
+/Source Code/Test/SAM2_Frames/
+/Source Code/Test/frames_convertor.py
+
+# SAM2 test frames
+/Source Code/Test/SAM2_Test_Frames/
