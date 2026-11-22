@@ -147,6 +147,12 @@ for out_frame_idx, out_obj_ids, out_mask_logits in predictor.propagate_in_video(
     # Store the mask using its frame index
     video_masks[out_frame_idx] = mask
 
+    if out_frame_idx == 0:
+        print("\nDimension verification:")
+        print("Original frame shape:", first_frame.shape)
+        print("Original mask shape:", mask.shape)
+        print("Mask data type:", mask.dtype)
+
     # Display progress every 10 frames
     if (out_frame_idx + 1) % 10 == 0:
         print(
@@ -157,6 +163,56 @@ for out_frame_idx, out_obj_ids, out_mask_logits in predictor.propagate_in_video(
 print("\nVideo propagation completed!")
 print(f"Total processed frames: {len(video_masks)}")
 
+# Convert video frames into RGBA frames
+rgba_frames = {}
+
+print("\nCreating RGBA frames...")
+
+for frame_idx, mask in video_masks.items():
+
+    # Load the original video frame
+    frame_path = VIDEO_FRAMES_DIR / f"{frame_idx:05d}.jpg"
+    frame = cv2.imread(str(frame_path))
+
+    if frame is None:
+        raise RuntimeError(f"Could not load frame {frame_idx}")
+
+    # Convert BGR to RGB
+    frame_rgb = cv2.cvtColor(
+        frame,
+        cv2.COLOR_BGR2RGB
+    )
+
+    # Convert the binary mask into an alpha channel
+    alpha = mask.astype(np.uint8) * 255
+
+    # Combine RGB and alpha channels
+    rgba_frame = np.dstack((frame_rgb, alpha))
+
+    # Store the RGBA frame
+    rgba_frames[frame_idx] = rgba_frame
+
+print("RGBA frame creation completed!")
+print(f"Total RGBA frames: {len(rgba_frames)}")
+
+# Verify the first RGBA frame
+first_rgba = rgba_frames[0]
+
+print("\nRGBA verification:")
+print("Frame shape:", first_rgba.shape)
+print("Data type:", first_rgba.dtype)
+print("Alpha minimum:", first_rgba[:, :, 3].min())
+print("Alpha maximum:", first_rgba[:, :, 3].max())
+print("Unique alpha values:", np.unique(first_rgba[:, :, 3]))
+
+# Display the first RGBA frame
+plt.figure(figsize=(8, 8))
+
+plt.imshow(rgba_frames[0])
+plt.title("RGBA Frame - Transparent Background")
+plt.axis("off")
+
+plt.show()
 
 # Frames to inspect
 frames_to_check = [0, 15, 30, 45, 59]
